@@ -21,7 +21,7 @@ refs.search.addEventListener('input', debounce(onInputChange, DEBOUNCE_DELAY));
 
 function onInputChange(e) {
     if (e.target.value === '') {
-        // console.log('target empty');
+        // console.log('input is empty');
         refs.countryInfo.innerHTML = '';
         return
     }
@@ -32,6 +32,7 @@ function onInputChange(e) {
         
         if (array.length > 10) {
             // console.log('more then 10');
+            refs.countryInfo.innerHTML = '';
             Notify.info('Too many matches found. Please enter a more specific name.');
         }
         else if ((array.length <= 10) && (array.length >= 2)) {
@@ -78,6 +79,7 @@ function renderCountryCard(countries) {
 function onFetchError(error) {
     refs.countryInfo.innerHTML = '';
     // console.log('CATCH ERROR!!!!!!!!!!!!!');
+    console.log(error);
     Notify.failure('Oops, there is no country with that name');
 }
 
