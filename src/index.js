@@ -80,6 +80,7 @@ function onFetchError(error) {
     refs.countryInfo.innerHTML = '';
     // console.log('CATCH ERROR!!!!!!!!!!!!!');
     console.log(error);
-    Notify.failure('Oops, there is no country with that name');
+    // Notify.failure('Oops, there is no country with that name.');
+    Notify.failure('Oops, something went wrong');
 }
 
