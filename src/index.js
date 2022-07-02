@@ -66,13 +66,13 @@ function renderCountriesCards(countries) {
 
 function renderCountryCard(countries) {
    
-    let markup = [];
+    
 
         countries.map(country => {
-            markup.push(countryCardTpl(country));
+            refs.countryInfo.innerHTML = countryCardTpl(country);
         });
     
-    refs.countryInfo.innerHTML = markup.join('');
+   
     
 }
 
