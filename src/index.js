@@ -64,16 +64,29 @@ function renderCountriesCards(countries) {
     refs.countryInfo.innerHTML = markup.join('');
 }
 
-function renderCountryCard(countries) {
-   
-    
 
-        countries.map(country => {
-            refs.countryInfo.innerHTML = countryCardTpl(country);
-        });
-    
+function renderCountryCard(country) {
+
+        // countries.map(country => {
+        //     refs.countryInfo.innerHTML = countryCardTpl(country);
+        // });
    
+    for (let i = 0; i < country.length; i += 1) {
+
+        refs.countryInfo.innerHTML = `<div class="card">
+                <div class="card-flag">
+                <img src="${country[i].flags.svg}" alt="${country[i].name.official}">
+                </div> 
+
+                <h2 class="card-name">${country[i].name.official}</h2>
+
+                <p class="card-text">Capital: ${country[i].capital}</p>
+                <p class="card-text">Population: ${country[i].population}</p>
+                <p class="card-text">Languages: ${Object.values(country[i].languages)}
+            </div>`
+    }
     
+       
 }
 
 function onFetchError(error) {
